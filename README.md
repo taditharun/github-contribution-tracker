@@ -1,34 +1,35 @@
 # GitHub Contribution Tracker
 
-A Python command-line tool that analyzes GitHub users and summarizes their repository statistics and contribution activity using the GitHub REST API.
+A Python CLI tool that analyzes a GitHub user's contributions and repository statistics using the GitHub REST API.
 
-This project provides a quick overview of a developer's GitHub profile, including repository statistics, programming language usage, and contribution activity.
+This project collects information about a user's repositories, pull requests, issues, and programming language usage, then displays the results in a structured table.
 
----
+--------------------------------------------------
 
-## Features
+FEATURES
 
-- Fetch GitHub user profile information
-- Analyze repository statistics
-- Calculate total stars and forks across repositories
-- Detect the most frequently used programming language
-- Count pull requests created by the user
-- Count issues created by the user
-- Clean CLI table output using tabulate
-- Basic GitHub API error handling
+• Fetch GitHub user profile information  
+• Analyze public repositories  
+• Calculate total stars across repositories  
+• Calculate total forks across repositories  
+• Identify most used programming language  
+• Count pull requests created by the user  
+• Count issues created by the user  
+• Display repository language usage statistics  
 
-## Technologies Used
+--------------------------------------------------
 
-- Python
-- GitHub REST API
-- Requests library
-- JSON data processing
+TECHNOLOGIES USED
 
----
+Python 3  
+GitHub REST API  
+Requests  
+Tabulate  
 
-## Project Structure
+--------------------------------------------------
 
-```
+PROJECT STRUCTURE
+
 github-contribution-tracker
 │
 ├── tracker
@@ -40,105 +41,92 @@ github-contribution-tracker
 ├── main.py
 ├── requirements.txt
 └── README.md
-```
 
----
+--------------------------------------------------
 
-## Installation
+FILE DESCRIPTION
 
-Clone the repository:
+main.py  
+Main CLI entry point that runs the program and displays formatted results.
 
-```bash
-git clone https://github.com/taditharun/github-contribution-tracker.git
-```
+tracker/github_api.py  
+Handles communication with the GitHub REST API and retrieves data.
 
-Navigate to the project directory:
+tracker/profile_stats.py  
+Processes GitHub user profile statistics.
 
-```bash
+tracker/repo_stats.py  
+Analyzes repository statistics such as stars, forks, and language usage.
+
+--------------------------------------------------
+
+INSTALLATION
+
+Clone the repository
+
+git clone https://github.com/yourusername/github-contribution-tracker.git
+
+Move into the project folder
+
 cd github-contribution-tracker
-```
 
-Install the required dependencies:
+Install dependencies
 
-```bash
 pip install -r requirements.txt
-```
 
----
+--------------------------------------------------
 
-## Usage
+USAGE
 
-Run the program with a GitHub username:
+Run the program using a GitHub username.
 
-```bash
 python main.py <github_username>
-```
 
-Example:
+Example
 
-```bash
 python main.py torvalds
-```
 
----
+--------------------------------------------------
 
-## Example Output
+EXAMPLE OUTPUT
 
-```
 GitHub Contribution Analysis
-----------------------------
 
-User: torvalds
-Followers: 250000
-Public Repositories: 8
+Metric                     Value
+----------------------------------------
+User                       torvalds
+Followers                  200000+
+Public Repositories        6
+Total Stars                180000+
+Total Forks                60000+
+Most Used Language         C
+Pull Requests Created      85
+Issues Created             7
 
-Repository Statistics
----------------------
+Language Usage
 
-Total Stars Received: 120000
-Total Forks: 35000
-Most Used Language: C
+Language       Repositories
+---------------------------
+C              9
+C++            1
+OpenSCAD       1
 
-Contribution Activity
----------------------
+--------------------------------------------------
 
-Pull Requests Created: 340
-Issues Created: 120
-```
+FUTURE IMPROVEMENTS
 
----
+• Add commit analytics  
+• Add contribution timeline graphs  
+• Export results to CSV or JSON  
+• Add GitHub API authentication support  
+• Build a web dashboard version  
 
-## GitHub API Endpoints Used
+--------------------------------------------------
 
-This project uses the following GitHub API endpoints:
+AUTHOR :
 
-```
-GET /users/{username}
-GET /users/{username}/repos
-GET /search/issues?q=author:{username}+type:pr
-GET /search/issues?q=author:{username}+type:issue
-```
+Tharun
 
-Official API documentation:  
-https://docs.github.com/en/rest
+GitHub: https://github.com/taditharun  
 
----
-
-## Future Improvements
-
-Possible enhancements for this project:
-
-- Commit activity analysis
-- Language usage charts
-- Export analysis results to JSON or CSV
-- Web-based dashboard version
-- GitHub API rate limit handling
-
----
-
-## Author
-
-Tharun  
-
-GitHub:  
-https://github.com/taditharun
+Email: taditharun8@gmail.com

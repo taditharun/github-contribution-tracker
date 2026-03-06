@@ -24,5 +24,6 @@ def analyze_repositories(repos):
     return {
         "stars": total_stars,
         "forks": total_forks,
-        "top_language": top_language
+        "top_language": top_language,
+        "languages": languages
     }
