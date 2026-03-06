@@ -37,15 +37,25 @@ def run_tracker(username):
     profile_stats = extract_profile_stats(profile)
     repo_stats = analyze_repositories(repos)
 
-    display_results(profile_stats, repo_stats, pull_requests, issues)
+    table = [
+        ["User", profile_stats["name"]],
+        ["Followers", profile_stats["followers"]],
+        ["Public Repositories", profile_stats["public_repos"]],
+        ["Total Stars", repo_stats["stars"]],
+        ["Total Forks", repo_stats["forks"]],
+        ["Most Used Language", repo_stats["top_language"]],
+        ["Pull Requests Created", pull_requests],
+        ["Issues Created", issues]
+    ]
 
+    print("\nGitHub Contribution Analysis\n")
+    print(tabulate(table, headers=["Metric", "Value"], tablefmt="github"))
 
-if __name__ == "__main__":
+    print("\nLanguage Usage\n")
 
-    if len(sys.argv) != 2:
-        print("Usage: python main.py <github_username>")
-        sys.exit(1)
+    lang_table = []
 
-    username = sys.argv[1]
+    for lang, count in repo_stats["languages"].items():
+        lang_table.append([lang, count])
 
-    run_tracker(username)
+    print(tabulate(lang_table, headers=["Language", "Repositories"], tablefmt="github"))
