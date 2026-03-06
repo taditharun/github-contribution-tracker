@@ -14,9 +14,8 @@ This project provides a quick overview of a developer's GitHub profile, includin
 - Detect the most frequently used programming language
 - Count pull requests created by the user
 - Count issues created by the user
-- Simple command-line interface
-
----
+- Clean CLI table output using tabulate
+- Basic GitHub API error handling
 
 ## Technologies Used
 
